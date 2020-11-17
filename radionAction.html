@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>무제 문서</title>
+    <link
+      href="https://fonts.googleapis.com/css?family=Raleway:700"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        background-color: #282828;
+        margin: 0;
+      }
+      header {
+        background-color: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        box-shadow: 0 0 0.4em 0 #000;
+        width: 100%;
+        margin: 0 auto;
+        max-width: 720px;
+      }
+      .h1-title {
+        font: 700 2em/1 'Raleway', sans-serif;
+        margin: 0;
+        padding: 0.4em 0.8em;
+      }
+      .a-search {
+        background: url(https://docs.microsoft.com/en-us/windows/uwp/design/style/images/segoe-mdl/e721.png)
+          no-repeat 50% 50%;
+        background-size: 32px;
+        height: 32px;
+        width: 32px;
+        padding: 0.4em 0.8em;
+      }
+      nav {
+        background-color: #4169e1;
+        border: 4px solid #4169e1;
+        border-radius: 44px;
+        display: inline-flex;
+        overflow: hidden;
+      }
+      nav input {
+        display: none;
+      }
+      nav label {
+        color: #fff;
+        padding: 0.4em 0.8em;
+        position: relative;
+        z-index: 0;
+        transition: color 0.4s ease-out;
+      }
+      nav .nav-chart {
+        z-index: 1;
+      }
+      nav .nav-playlist::after {
+        background-color: #fff;
+        border-radius: 44px;
+        color: transparent;
+        content: '재생 목록';
+        display: inline-block;
+        padding: 0.4em 0.8em;
+        position: absolute;
+        z-index: -1;
+        top: 0;
+        left: 0;
+        transition: left 0.4s ease-out;
+      }
+      nav input:checked + label {
+        color: #4169e1;
+      }
+      nav #nav-chart:checked ~ .nav-playlist::after {
+        left: -100%;
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <!-- CSS만 사용함
+플랫 디자인 입니당~ 제가 쓰려고 만든거에요
+CSS 트랜지션, type=radio를 사용한 토글 메뉴
+
+원리 : 가장 넓은 요소에 스타일 (패딩, 폰트 크기 등)을 복제해서 크기를 맞추고 z-index를 줍니다.
+left 또는 transformX를 사용하세요.
+[출처] CSS 트랜지션, type=radio를 사용한 토글 메뉴 (하드코딩하는사람들) | 작성자 꾸미기 -->
+      <h1 class="h1-title">header title</h1>
+      <nav>
+        <input checked id="nav-chart" name="nav" type="radio" /><label
+          class="nav-chart"
+          for="nav-chart"
+          >차트</label
+        >
+        <input id="nav-playlist" name="nav" type="radio" /><label
+          class="nav-playlist"
+          for="nav-playlist"
+          >재생 목록</label
+        >
+      </nav>
+      <a class="a-search"></a>
+    </header>
+  </body>
+</html>

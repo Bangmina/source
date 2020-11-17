@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="css/reset.css" />
+    <style>
+      ul {
+        display: flex;
+      }
+      li:not(:last-child) {
+        margin-right: 30px;
+      }
+      a {
+        color: #333;
+        text-decoration: none;
+        position: relative;
+        padding: 10px;
+        display: block;
+      }
+
+      li:hover > a::after {
+        left: 0;
+        right: 0;
+      }
+      a::after {
+        content: '';
+        display: block;
+        position: absolute;
+        left: 50%;
+        right: 50%;
+        height: 2px;
+        bottom: 0;
+        background: blueviolet;
+        transition: all 0.3s;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- menu hover action -->
+    <ul>
+      <li><a href="javascript:void(0);">content1</a></li>
+      <li><a href="javascript:void(0);">content2</a></li>
+    </ul>
+  </body>
+</html>
